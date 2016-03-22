@@ -1,10 +1,13 @@
 import React from 'react'
-import SearchBarContainer from '../containers/SearchBarContainer'
+import Heading from './Heading'
+import SearchBar from './SearchBar'
+import List from './List'
 
 const App = () => (
-
   <div>
-    <SearchBarContainer />
+    <Heading />
+    <SearchBar />
+    <List />
   </div>
 )
 

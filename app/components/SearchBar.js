@@ -1,30 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import {search, fetchSongs} from '../actions'
 
-const SearchBar = ({searchbar, dispatch}) => {
+let SearchBar = ({dispatch}) => {
   let input;
 
   return (
     <div>
+      <hr/>
+      
+      <label>Artist Name: </label>
       <input ref={node => input = node} />
       <button onClick={() => {
         dispatch(search(input.value))
         input.value = ''
       }} >
-        Search by Artist
-      </button><br/>
-      Results: {searchbar}
+        Search for song by artist
+      </button>
 
       <hr/>
-      <button onClick={() => {
-        dispatch(fetchSongs())
-      }} >
-        Fetch Songs
-      </button><br/>
-
-
     </div>
   )
 }
+SearchBar = connect()(SearchBar)
 
 export default SearchBar
