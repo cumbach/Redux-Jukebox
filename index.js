@@ -2,21 +2,16 @@ import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import * as rootReducer from './app/reducers'
 import App from './app/components/App'
-import { combineReducers } from 'redux'
-import * as reducers from './app/reducers'
-import sagaMiddleware from 'redux-saga';
+import { helloSaga } from './app/sagas/songs'
 
-const jukeboxApp = combineReducers(reducers)
-
-import watchSongs from './app/sagas/songs'
-
-const createStoreWithSaga = applyMiddleware(
-  sagaMiddleware([watchSongs])
-)(createStore);
-
-let store = createStoreWithSaga(jukeboxApp);
+const store = createStore(
+  combineReducers(rootReducer),
+  applyMiddleware(createSagaMiddleware(helloSaga))
+)
 
 render(
   <Provider store={store}>

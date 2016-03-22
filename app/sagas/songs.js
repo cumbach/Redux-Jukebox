@@ -1,4 +1,5 @@
-import { call, put, fork, take } from 'redux-saga';
+import { fork, take } from 'redux-saga';
+import { call, put } from 'redux-saga/effects'
 
 function* loadSongs() {
 
@@ -18,8 +19,13 @@ function* loadSongs() {
 
 }
 
-export default function* watchSongs() {
+export function* watchSongs() {
      while (yield take('FETCH_SONGS')) {
          yield fork(loadSongs);
      }
+}
+
+
+export function* helloSaga() {
+  console.log('Hello Sagas!');
 }
