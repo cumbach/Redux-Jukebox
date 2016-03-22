@@ -1,6 +1,6 @@
-export const searchbar = (state = '', action) => {
+export const food = (state = '', action) => {
   switch (action.type) {
-    case 'SEARCH_BY_ARTIST':
+    case 'SEARCH_BY_FOOD':
       return action.artistName
     default:
       return state

@@ -1,8 +1,7 @@
-import { combineReducers } from 'redux'
-import searchbar from './searchbar'
+import { food } from './food'
+import { searchbar } from './searchbar'
 
-const jukeboxApp = combineReducers({
-  searchbar
-})
-
-export default jukeboxApp
+export {
+  searchbar,
+  food
+}

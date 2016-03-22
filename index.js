@@ -3,14 +3,14 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import jukeboxApp from './app/reducers'
 import App from './app/components/App'
+import { combineReducers } from 'redux'
+import * as reducers from './app/reducers'
 
-let store = createStore(jukeboxApp, {searchbar: "hello"})
+const jukeboxApp = combineReducers(reducers)
 
-// console.log(store.getState())
 render(
-  <Provider store={store}>
+  <Provider store={createStore(jukeboxApp)}>
     <App />
   </Provider>,
   document.getElementById('root')

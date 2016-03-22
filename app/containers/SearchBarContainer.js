@@ -10,21 +10,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onClick: (query) => {
-//       dispatch(search(query))
-//     }
-//   }
-// }
-
-
 const SearchBarContainer = connect(
   mapStateToProps,
   null
 )(SearchBar)
-
-
-
 
 export default SearchBarContainer

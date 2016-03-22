@@ -18,7 +18,4 @@ const SearchBar = ({searchbar, dispatch}) => {
   )
 }
 
-
-
-
 export default SearchBar
