@@ -1,5 +1,5 @@
 import React from 'react'
-import {search} from '../actions'
+import {search, fetchSongs} from '../actions'
 
 const SearchBar = ({searchbar, dispatch}) => {
   let input;
@@ -14,6 +14,15 @@ const SearchBar = ({searchbar, dispatch}) => {
         Search by Artist
       </button><br/>
       Results: {searchbar}
+
+      <hr/>
+      <button onClick={() => {
+        dispatch(fetchSongs())
+      }} >
+        Fetch Songs
+      </button><br/>
+
+
     </div>
   )
 }
