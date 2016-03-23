@@ -17,7 +17,7 @@ function callApi(endpoint, query) {
   return fetch(fullUrl)
     .then(response => {
       return response.json().then(json => {
-        console.log(json.response.songs)
+        // console.log(json.response.songs)
         return { json, response, entities : json.response.songs }
       })
     })

@@ -1,13 +1,15 @@
 import React from 'react'
 
-const List = () => (
+const List = ({items}) => {
+  // console.log(items)
+  return (
   <div>
     <ul>
-    {[1,2,3,4,5,6,7,8].map(
-      x => (<li key={x}>{x}</li>)
+    {items.map(
+      x => (<li key={x.id}>{x.title}</li>)
     )}
     </ul>
   </div>
-)
+)}
 
 export default List
