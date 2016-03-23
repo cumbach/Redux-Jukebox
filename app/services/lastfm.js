@@ -3,7 +3,7 @@ import '../utils'
 
 const API_KEY = '0ed2e239a694ee9e0b8b129c525b864c'
 const API_ROOT = 'http://ws.audioscrobbler.com/2.0/'
-const SUFFIX = `?api_key=${API_KEY}&format=json&`
+const SUFFIX = `?api_key=${API_KEY}&format=json&limit=10&`
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
