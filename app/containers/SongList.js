@@ -12,9 +12,6 @@ let SongList = ({songs}) => {
   )
 }
 
-SongList = connect(
-  mapStateToProps,
-  null
-)(SongList)
+SongList = connect(mapStateToProps)(SongList)
 
 export default SongList
