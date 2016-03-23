@@ -1,16 +1,29 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { selectSong } from '../actions'
 
-const List = ({items}) => (
+
+let List = ({
+  tracks,
+  selectedSong,
+  dispatch
+}) => (
   <div>
     <ul className="list" >
-    {items.map(
-      (x, n) => (<li className="track" key={n}>
+    {tracks.map((x, n) => (
+      <li
+        className={'list-track ' + (x === selectedSong ? 'active' : null )}
+        onClick={() => dispatch(selectSong(x))}
+        key={n} >
         <span className="title" >{x.name}</span>
         <span className="artist" >{ x.artist.name || x.artist }</span>
+
       </li>)
     )}
     </ul>
   </div>
 )
+
+List = connect()(List)
 
 export default List

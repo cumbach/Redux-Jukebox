@@ -1,13 +1,17 @@
 import React from 'react'
 import Heading from './Heading'
 import SearchBar from './SearchBar'
-import SongList from '../containers/SongList'
+import TrackListContainer from '../containers/TrackListContainer'
+import TrackContainer from '../containers/TrackContainer'
 
 const App = () => (
   <div>
     <Heading />
     <SearchBar />
-    <SongList />
+    <div>
+      <TrackListContainer />
+      <TrackContainer />
+    </div>
   </div>
 )
 

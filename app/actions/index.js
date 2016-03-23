@@ -20,6 +20,7 @@ export const LOAD_SONG_BY_NAME = 'LOAD_SONG_BY_NAME'
 export const RESET_SCREEN = 'RESET_SCREEN'
 export const SONG_BY_ARTIST = createRequestTypes('SONG_BY_ARTIST')
 export const SONG_BY_NAME = createRequestTypes('SONG_BY_NAME')
+export const SELECT_SONG = 'SELECT_SONG'
 
 ////////////////////////////////////////////////////
 // CREATE ACTION CREATORS
@@ -39,3 +40,5 @@ export const songByName = {
   success: (name, response) => action(SONG_BY_NAME.SUCCESS, {name, response}),
   failure: (name, error) => action(SONG_BY_NAME.FAILURE, {name, error}),
 }
+
+export const selectSong = (song) => action(SELECT_SONG, {song})
