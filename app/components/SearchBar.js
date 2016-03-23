@@ -16,10 +16,14 @@ let SearchBar = ({dispatch}) => {
       }} >
         Reset
       </button>
-      <button onClick={() => dispatch(loadSongByArtist(input.value)) } >
+      <button onClick={() => {
+        input.value && dispatch(loadSongByArtist(input.value))
+      }} >
         Search for song by artist name
       </button>
-      <button onClick={() => dispatch(loadSongByName(input.value)) } >
+      <button onClick={() => {
+        input.value && dispatch(loadSongByName(input.value))
+      }} >
         Search for song by name
       </button>
 
