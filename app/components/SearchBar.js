@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { loadSongByArtist, loadSongByName } from '../actions'
+import { resetScreen, loadSongByArtist, loadSongByName } from '../actions'
 
 let SearchBar = ({dispatch}) => {
   let input;
@@ -10,8 +10,11 @@ let SearchBar = ({dispatch}) => {
       <hr/>
 
       <input ref={node => input = node} />
-      <button onClick={() => input.value = ''} >
-      Clear
+      <button onClick={() => {
+        input.value = ''
+        dispatch(resetScreen())
+      }} >
+        Reset
       </button>
       <button onClick={() => dispatch(loadSongByArtist(input.value)) } >
         Search for song by artist name
