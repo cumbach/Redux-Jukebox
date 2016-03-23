@@ -15,7 +15,7 @@ let Track = ({
       </div>
     </div>
 
-    <div>
+    <div className="controls">
       <button onClick={() => {
       }} >
         Add to Queue

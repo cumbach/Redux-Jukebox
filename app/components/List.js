@@ -22,7 +22,7 @@ let List = ({
     )}
     </ul>
 
-    <div>
+    <div className="controls">
       <button onClick={() => {
       }} >
         Page Up
