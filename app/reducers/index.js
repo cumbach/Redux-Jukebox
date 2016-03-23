@@ -20,7 +20,6 @@ export const entities = (state = { songs: [] }, action) => {
 
   if (action.type === RESET_SCREEN) {
     return { ...state, songs: [] }
-
   }
 
   return state
@@ -29,6 +28,10 @@ export const entities = (state = { songs: [] }, action) => {
 export const selectedSong = (state = {}, action) => {
   if (action.type === SELECT_SONG) {
     return (state === action.song) ? {} : action.song
+  }
+
+  if (action.type === RESET_SCREEN) {
+    return {}
   }
 
   return state

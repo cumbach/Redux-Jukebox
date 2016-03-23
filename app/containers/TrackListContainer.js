@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
 })
 
 let TrackListContainer = ({songs, selectedSong}) => {
-  return (
+
+  const renderTrackList = (songs, selectedSong) => (
     <div className="track-list-container" >
       <h1>search results</h1>
       { songs.length ?
@@ -17,6 +18,15 @@ let TrackListContainer = ({songs, selectedSong}) => {
       }
     </div>
   )
+
+  return (
+    <div>
+       { songs.length ? renderTrackList(songs, selectedSong) : null }
+    </div>
+  )
+
+
+
 }
 
 TrackListContainer = connect(mapStateToProps)(TrackListContainer)
