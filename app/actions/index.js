@@ -12,6 +12,9 @@ function action(type, payload = {}) {
   return {type, ...payload}
 }
 
+
+export const LOAD_SONG_BY_ARTIST_PAGE = 'LOAD_SONG_BY_ARTIST_PAGE'
+
 ////////////////////////////////////////////////////
 // Create structure of constant names
 //
@@ -25,3 +28,5 @@ export const songByArtist = {
   success: (name, response) => action(SONG_BY_ARTIST.SUCCESS, {name, response}),
   failure: (name, error) => action(SONG_BY_ARTIST.FAILURE, {name, error}),
 }
+
+export const loadSongByArtistPage = (artistName) => action(LOAD_SONG_BY_ARTIST_PAGE, {artistName})

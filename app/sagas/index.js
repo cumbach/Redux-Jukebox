@@ -3,17 +3,18 @@ import { api } from '../services'
 import * as actions from '../actions'
 
 // each entity defines 3 creators { request, success, failure }
-const { song } = actions
+const { songByArtist } = actions
 
 ////////////////////////////////////////////////////
 // SAGAS
 //
-
-export function* helloSaga() {
+/*=====================================
+*/
+function* helloSaga() {
   console.log('Hello Sagas!');
 }
 
-/*
+/*=====================================
   resuable fetch saga
   entity :  user | repo | starred | stargazers
   apiFn  : api.fetchUser | api.fetchRepo | ...
@@ -29,4 +30,29 @@ function* fetchEntity(entity, apiFn, id, url) {
     yield put( entity.failure(id, error) )
 }
 
-export const fetchSong = fetchEntity.bind(null, song, api.fetchSong)
+/*=====================================
+*/
+function* watchLoadSongByArtistPage() {
+  while(true) {
+    const {artistName} = yield take(actions.LOAD_SONG_BY_ARTIST_PAGE)
+
+    console.log('WATCH CALLED')
+    // yield fork(loadRepo, fullName, requiredFields)
+    // yield fork(loadStargazers, fullName)
+  }
+}
+
+
+
+
+export const fetchSongByArtist = fetchEntity.bind(null, songByArtist, api.fetchSongByArtist)
+
+
+export default function* root() {
+  yield [
+    fork(helloSaga),
+    fork(watchLoadSongByArtistPage)
+    // fork(watchLoadMoreStarred),
+    // fork(watchLoadMoreStargazers)
+  ]
+}

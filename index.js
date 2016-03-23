@@ -4,14 +4,13 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { helloSaga } from './app/sagas'
+import rootSaga from './app/sagas'
 import * as rootReducer from './app/reducers'
 import App from './app/components/App'
 
-
 const store = createStore(
   combineReducers(rootReducer),
-  applyMiddleware(createSagaMiddleware(helloSaga))
+  applyMiddleware(createSagaMiddleware(rootSaga))
 )
 
 render(
