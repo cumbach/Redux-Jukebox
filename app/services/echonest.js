@@ -14,7 +14,7 @@ function callApi(endpoint, query) {
   return fetch(fullUrl)
     .then(response => {
       return response.json().then(json => {
-        return { json, response, entities : json.response.songs }
+        return { entities : json.response.songs }
       })
     })
     .then(
