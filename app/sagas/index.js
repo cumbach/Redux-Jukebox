@@ -1,5 +1,5 @@
 import { take, put, call, fork, select } from 'redux-saga/effects'
-import { echonest, youtube } from '../services'
+import { lastfm, youtube } from '../services'
 import * as actions from '../actions'
 
 // each entity defines 3 creators { request, success, failure }
@@ -31,8 +31,8 @@ function* fetchEntity(entity, apiFn, id, url) {
 
 /*=====================================
 */
-export const fetchSongByArtist = fetchEntity.bind(null, songByArtist, echonest.fetchSongByArtist)
-export const fetchSongByName = fetchEntity.bind(null, songByName, echonest.fetchSongByName)
+export const fetchSongByArtist = fetchEntity.bind(null, songByArtist, lastfm.fetchSongByArtist)
+export const fetchSongByName = fetchEntity.bind(null, songByName, lastfm.fetchSongByName)
 
 
 /*=====================================

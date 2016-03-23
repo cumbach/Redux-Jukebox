@@ -1,6 +1,6 @@
-import * as _en from './echonest'
+import * as _lf from './lastfm'
 import * as _yt from './youtube'
 
 
-export const echonest = _en
+export const lastfm = _lf
 export const youtube = _yt

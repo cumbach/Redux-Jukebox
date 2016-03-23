@@ -4,7 +4,7 @@ const List = ({items}) => (
   <div>
     <ul>
     {items.map(
-      x => (<li key={x.id}>{x.title} [{x.artist_name}]</li>)
+      (x, n) => (<li key={n}>{x.name} [{ x.artist.name || x.artist }]</li>)
     )}
     </ul>
   </div>
