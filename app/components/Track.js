@@ -7,7 +7,6 @@ let Track = ({
   dispatch
 }) => (
   <div className="track">
-
     <div className="track-banner">
       <div className="track-title" >{track.name}</div>
       <div className="track-artist" >{track.artist.name || track.artist}</div>

@@ -28,7 +28,6 @@ export const entities = (state = { songs: [] }, action) => {
 
 export const selectedSong = (state = {}, action) => {
   if (action.type === SELECT_SONG) {
-    console.log('SELECT_SONG')
     return (state === action.song) ? {} : action.song
   }
 

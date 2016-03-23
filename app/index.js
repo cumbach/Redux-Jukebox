@@ -15,8 +15,6 @@ const store = createStore(
   applyMiddleware(createSagaMiddleware(rootSaga))
 )
 
-store.subscribe(() => dump(store.getState()))
-
 render(
   <Provider store={store}>
     <App />
