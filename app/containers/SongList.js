@@ -8,7 +8,9 @@ const mapStateToProps = (state) => ({
 
 let SongList = ({songs}) => {
   return (
-    songs ? <List items={songs} /> : null
+    <div>
+      { songs.length ? <List items={songs} /> : null }
+    </div>
   )
 }
 
