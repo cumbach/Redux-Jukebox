@@ -13,6 +13,14 @@ const store = createStore(
   applyMiddleware(createSagaMiddleware(rootSaga))
 )
 
+store.subscribe(log)
+
+function log() {
+  console.log(store.getState())
+}
+
+
+
 render(
   <Provider store={store}>
     <App />

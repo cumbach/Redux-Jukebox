@@ -11,30 +11,20 @@ function callApi(endpoint, query) {
 
   const fullUrl = API_ROOT + endpoint + SUFFIX + query
 
-  console.log(`calling: ${fullUrl}`)
 
-  // const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint
-  //
-  // return fetch(fullUrl)
-  //   .then(response =>
-  //     response.json().then(json => ({ json, response }))
-  //   ).then(({ json, response }) => {
-  //     if (!response.ok) {
-  //       return Promise.reject(json)
-  //     }
-  //
-  //     const camelizedJson = camelizeKeys(json)
-  //     const nextPageUrl = getNextPageUrl(response)
-  //
-  //     return Object.assign({},
-  //       normalize(camelizedJson, schema),
-  //       { nextPageUrl }
-  //     )
-  //   })
-  //   .then(
-  //     response => ({response}),
-  //     error => ({error: error.message || 'Something bad happened'})
-  //   )
+  // return Promise.resolve(fullUrl)
+
+  return fetch(fullUrl)
+    .then(response => {
+      return response.json().then(json => {
+        console.log(json.response.songs)
+        return { json, response, entities : json.response.songs }
+      })
+    })
+    .then(
+      response => ({response}),
+      error => ({error: error.message || 'Something bad happened'})
+    )
 
 }
 

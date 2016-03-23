@@ -11,7 +11,7 @@ const { songByArtist } = actions
 /*=====================================
 */
 function* helloSaga() {
-  console.log('Hello Sagas!');
+  // console.log('Hello Sagas!');
 }
 
 /*=====================================
@@ -24,10 +24,14 @@ function* helloSaga() {
 function* fetchEntity(entity, apiFn, id, url) {
   yield put( entity.request(id) )
   const {response, error} = yield call(apiFn, url || id)
-  if(response)
+  if(response) {
     yield put( entity.success(id, response) )
-  else
+
+  } else {
+    console.log('error')
     yield put( entity.failure(id, error) )
+  }
+    // console.log(entity.success)
 }
 
 /*=====================================
@@ -36,8 +40,8 @@ function* watchLoadSongByArtistPage() {
   while(true) {
     const {artistName} = yield take(actions.LOAD_SONG_BY_ARTIST_PAGE)
 
-    console.log('WATCH CALLED')
-    // yield fork(loadRepo, fullName, requiredFields)
+    // console.log(artistName)
+    yield fork(fetchSongByArtist, artistName)
     // yield fork(loadStargazers, fullName)
   }
 }
