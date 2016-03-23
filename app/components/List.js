@@ -6,7 +6,7 @@ const List = ({items}) => (
     {items.map(
       (x, n) => (<li className="track" key={n}>
         <span className="title" >{x.name}</span>
-        <span className="artist" >[{ x.artist.name || x.artist }]</span>
+        <span className="artist" >{ x.artist.name || x.artist }</span>
       </li>)
     )}
     </ul>

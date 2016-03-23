@@ -39,3 +39,36 @@ body {
   top: 5;
   right: 5px;
 }
+
+
+
+input {
+  border: none !important;
+}
+
+
+
+button,
+button:focus,
+button:active,
+button:hover {
+    border:1px solid black;
+    background: silver;
+    outline:none;
+    padding: 7px;
+    margin: 3px;
+
+}
+
+button:active {
+  background: lightblue;
+}
+
+
+input, button {
+  font-size: 10pt;
+  font-weight: 600;
+  padding: 7px;
+  margin: 3px;
+  border-radius: 3px;
+}
