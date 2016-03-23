@@ -14,11 +14,13 @@ function action(type, payload = {}) {
 
 
 export const LOAD_SONG_BY_ARTIST = 'LOAD_SONG_BY_ARTIST'
+export const LOAD_SONG_BY_NAME = 'LOAD_SONG_BY_NAME'
 
 ////////////////////////////////////////////////////
 // Create structure of constant names
 //
 export const SONG_BY_ARTIST = createRequestTypes('SONG_BY_ARTIST')
+export const SONG_BY_NAME = createRequestTypes('SONG_BY_NAME')
 
 ////////////////////////////////////////////////////
 // Create action creators for each constant
@@ -29,4 +31,11 @@ export const songByArtist = {
   failure: (name, error) => action(SONG_BY_ARTIST.FAILURE, {name, error}),
 }
 
+export const songByName = {
+  request: name => action(SONG_BY_NAME.REQUEST, {name}),
+  success: (name, response) => action(SONG_BY_NAME.SUCCESS, {name, response}),
+  failure: (name, error) => action(SONG_BY_NAME.FAILURE, {name, error}),
+}
+
 export const loadSongByArtist = (artistName) => action(LOAD_SONG_BY_ARTIST, {artistName})
+export const loadSongByName = (songName) => action(LOAD_SONG_BY_NAME, {songName})

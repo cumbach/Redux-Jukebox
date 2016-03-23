@@ -3,7 +3,7 @@ import { echonest, youtube } from '../services'
 import * as actions from '../actions'
 
 // each entity defines 3 creators { request, success, failure }
-const { songByArtist } = actions
+const { songByArtist, songByName } = actions
 
 ////////////////////////////////////////////////////
 // SAGAS
@@ -32,6 +32,7 @@ function* fetchEntity(entity, apiFn, id, url) {
 /*=====================================
 */
 export const fetchSongByArtist = fetchEntity.bind(null, songByArtist, echonest.fetchSongByArtist)
+export const fetchSongByName = fetchEntity.bind(null, songByName, echonest.fetchSongByName)
 
 
 /*=====================================
@@ -43,10 +44,18 @@ function* watchLoadSongByArtist() {
   }
 }
 
+function* watchLoadSongByName() {
+  while(true) {
+    const {songName} = yield take(actions.LOAD_SONG_BY_NAME)
+    yield fork(fetchSongByName, songName)
+  }
+}
+
 /*=====================================
 */
 export default function* root() {
   yield [
-    fork(watchLoadSongByArtist)
+    fork(watchLoadSongByArtist),
+    fork(watchLoadSongByName)
   ]
 }

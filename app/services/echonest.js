@@ -14,7 +14,6 @@ function callApi(endpoint, query) {
   return fetch(fullUrl)
     .then(response => {
       return response.json().then(json => {
-
         return { json, response, entities : json.response.songs }
       })
     })
@@ -29,4 +28,5 @@ function callApi(endpoint, query) {
 ////////////////////////////////////////////////////
 // api services
 //
-export const fetchSongByArtist = artistName => callApi('artist/songs', `name=${artistName}`)
+export const fetchSongByArtist = artistName => callApi('song/search', `artist=${artistName}`)
+export const fetchSongByName = songName => callApi('song/search', `title=${songName}`)
