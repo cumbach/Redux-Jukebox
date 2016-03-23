@@ -7,15 +7,36 @@ let Track = ({
   dispatch
 }) => (
   <div className="track">
-    <div className="track-banner">
-      <div className="track-title" >{track.name}</div>
-      <div className="track-artist" >{track.artist.name || track.artist}</div>
+    <div className="track-graphic">
+      <img className="track-image" src={track.image[3]['#text']} />
+      <div className="track-banner">
+        <div className="track-title" >{track.name}</div>
+        <div className="track-artist" >{track.artist.name || track.artist}</div>
+      </div>
     </div>
 
-    <img className="track-image" src={track.image[3]['#text']} />
+    <div>
+      <button onClick={() => {
+      }} >
+        Add to Queue
+      </button>
+      <button onClick={() => {
+      }} >
+        Add to Playlist
+      </button>
+    </div>
+
+
   </div>
 )
 
 Track = connect()(Track)
 
 export default Track
+
+
+
+/*
+
+
+*/

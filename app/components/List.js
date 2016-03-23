@@ -21,6 +21,18 @@ let List = ({
       </li>)
     )}
     </ul>
+
+    <div>
+      <button onClick={() => {
+      }} >
+        Page Up
+      </button>
+      <button onClick={() => {
+      }} >
+        Page Down
+      </button>
+    </div>
+
   </div>
 )
 
