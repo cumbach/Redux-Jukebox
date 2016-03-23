@@ -1,3 +1,6 @@
-import * as _api from './api'
+import * as _en from './echonest'
+import * as _yt from './youtube'
 
-export const api = _api
+
+export const echonest = _en
+export const youtube = _yt

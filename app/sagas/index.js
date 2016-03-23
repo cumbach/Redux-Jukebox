@@ -1,5 +1,5 @@
 import { take, put, call, fork, select } from 'redux-saga/effects'
-import { api } from '../services'
+import { echonest, youtube } from '../services'
 import * as actions from '../actions'
 
 // each entity defines 3 creators { request, success, failure }
@@ -8,11 +8,6 @@ const { songByArtist } = actions
 ////////////////////////////////////////////////////
 // SAGAS
 //
-/*=====================================
-*/
-function* helloSaga() {
-  // console.log('Hello Sagas!');
-}
 
 /*=====================================
   resuable fetch saga
@@ -31,32 +26,27 @@ function* fetchEntity(entity, apiFn, id, url) {
     console.log('error')
     yield put( entity.failure(id, error) )
   }
-    // console.log(entity.success)
+
 }
 
 /*=====================================
 */
-function* watchLoadSongByArtistPage() {
-  while(true) {
-    const {artistName} = yield take(actions.LOAD_SONG_BY_ARTIST_PAGE)
+export const fetchSongByArtist = fetchEntity.bind(null, songByArtist, echonest.fetchSongByArtist)
 
-    // console.log(artistName)
+
+/*=====================================
+*/
+function* watchLoadSongByArtist() {
+  while(true) {
+    const {artistName} = yield take(actions.LOAD_SONG_BY_ARTIST)
     yield fork(fetchSongByArtist, artistName)
-    // yield fork(loadStargazers, fullName)
   }
 }
 
-
-
-
-export const fetchSongByArtist = fetchEntity.bind(null, songByArtist, api.fetchSongByArtist)
-
-
+/*=====================================
+*/
 export default function* root() {
   yield [
-    fork(helloSaga),
-    fork(watchLoadSongByArtistPage)
-    // fork(watchLoadMoreStarred),
-    // fork(watchLoadMoreStargazers)
+    fork(watchLoadSongByArtist)
   ]
 }

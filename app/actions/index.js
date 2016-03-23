@@ -13,7 +13,7 @@ function action(type, payload = {}) {
 }
 
 
-export const LOAD_SONG_BY_ARTIST_PAGE = 'LOAD_SONG_BY_ARTIST_PAGE'
+export const LOAD_SONG_BY_ARTIST = 'LOAD_SONG_BY_ARTIST'
 
 ////////////////////////////////////////////////////
 // Create structure of constant names
@@ -29,4 +29,4 @@ export const songByArtist = {
   failure: (name, error) => action(SONG_BY_ARTIST.FAILURE, {name, error}),
 }
 
-export const loadSongByArtistPage = (artistName) => action(LOAD_SONG_BY_ARTIST_PAGE, {artistName})
+export const loadSongByArtist = (artistName) => action(LOAD_SONG_BY_ARTIST, {artistName})

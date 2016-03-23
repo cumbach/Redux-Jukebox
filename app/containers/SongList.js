@@ -12,7 +12,6 @@ let SongList = ({songs}) => {
   )
 }
 
-
 SongList = connect(
   mapStateToProps,
   null

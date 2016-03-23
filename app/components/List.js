@@ -1,8 +1,6 @@
 import React from 'react'
 
-const List = ({items}) => {
-  // console.log(items)
-  return (
+const List = ({items}) => (
   <div>
     <ul>
     {items.map(
@@ -10,6 +8,6 @@ const List = ({items}) => {
     )}
     </ul>
   </div>
-)}
+)
 
 export default List
