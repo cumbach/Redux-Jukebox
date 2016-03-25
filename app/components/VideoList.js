@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { youtube } from '../services'
 
 
 
@@ -13,8 +14,16 @@ class VideoList extends React.Component {
   }
 
   componentWillMount() {
+    this.makeCall()
+  }
+
+  componentDidUpdate() {
+    this.makeCall()
+  }
+
+  makeCall() {
     var self = this;
-    let {videos} = this.props
+    let videos = youtube.getVideos(this.props.selectedSong.name)
     videos.then(videoList => {
       self.setState({
         videoList
@@ -24,18 +33,19 @@ class VideoList extends React.Component {
 
 
   render() {
-    console.log(this)
     return (
-      <div className="video-list">
-        { this.state.videoList.map((video, n) => (
-            <iframe className="video"
-                  key={n}
-                  width="30%" height="auto"
-                  src={"https://www.youtube.com/embed/" + video.id }
-                  frameBorder="0"
-                  allowFullScreen></iframe>
-          ))
-        }
+      <div>
+        <div className="video-list">
+          { this.state.videoList.map((video, n) => (
+              <iframe className="video"
+                    key={n}
+                    width="30%"
+                    src={"https://www.youtube.com/embed/" + video.id }
+                    frameBorder="0"
+                    allowFullScreen></iframe>
+            ))
+          }
+        </div>
       </div>
     )
 

@@ -153,5 +153,5 @@ input, button {
 
 .video {
   margin: 5px;
-
+  object-fit: cover;
 }
