@@ -33,9 +33,9 @@ export const entities = (state = { songs: [], page: 1, part: 1 }, action) => {
       }
 
     case PAGE_DOWN:
-      let moreDataOnServer = state.songs.length === 50
+      let moreDataOnServer = state.songs.length === 40
 
-      if (state.part < 5) {
+      if (state.part < 4) {
         return {...state, part: state.part + 1}
       }
       else if (moreDataOnServer) {

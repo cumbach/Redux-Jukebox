@@ -10,8 +10,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  pageUp: dispatch(pageUp),
-  pageDown: dispatch(pageDown)
+  pageUp: dispatch(pageUp()),
+  pageDown: dispatch(pageDown())
 })
 
 let TrackListContainer = ({songs, selectedSong}) => {

@@ -1,10 +1,11 @@
 import 'isomorphic-fetch'
 import '../utils'
-import store from '../index'
+
+import { store } from '../index'
 
 const API_KEY = '0ed2e239a694ee9e0b8b129c525b864c'
 const API_ROOT = 'http://ws.audioscrobbler.com/2.0/'
-const SUFFIX = `?api_key=${API_KEY}&format=json&limit=50&`
+const SUFFIX = `?api_key=${API_KEY}&format=json&limit=40&`
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
@@ -29,9 +30,12 @@ function callApi(query, objectPath) {
 // api services
 //
 export const fetchSongByArtist = (artistName) => {
-  let page = store.getState().entities.page
-  console.log(`PAGE: ${page}`)
-  callApi(`method=artist.gettoptracks&artist=${artistName}&page=${page}`, 'toptracks.track')
+  let page
+  if (store) {
+    page = store.getState().entities.page
+  }
+  page = 2
+  return callApi(`method=artist.gettoptracks&artist=${artistName}&page=${page}`, 'toptracks.track')
 }
-export const fetchSongByName = (songName, page) =>
-  callApi(`method=track.search&track=${songName}&page=${page}`, 'results.trackmatches.track')
+export const fetchSongByName = (songName) =>
+  callApi(`method=track.search&track=${songName}`, 'results.trackmatches.track')
