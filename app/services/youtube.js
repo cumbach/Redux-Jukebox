@@ -48,6 +48,7 @@ const getVideoDetails = (ids) => {
 export const getVideos = (query) => searchVideos(query).then(getVideoDetails)
 
 
+getVideos('stan').then(console.log.bind(console))
 
 /*
 
