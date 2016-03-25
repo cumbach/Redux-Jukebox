@@ -21,6 +21,9 @@ export const RESET_SCREEN = 'RESET_SCREEN'
 export const SONG_BY_ARTIST = createRequestTypes('SONG_BY_ARTIST')
 export const SONG_BY_NAME = createRequestTypes('SONG_BY_NAME')
 export const SELECT_SONG = 'SELECT_SONG'
+export const PAGE_UP = 'PAGE_UP'
+export const PAGE_DOWN = 'PAGE_DOWN'
+
 
 ////////////////////////////////////////////////////
 // CREATE ACTION CREATORS
@@ -42,3 +45,5 @@ export const songByName = {
 }
 
 export const selectSong = (song) => action(SELECT_SONG, {song})
+export const pageUp = () => action(PAGE_UP)
+export const pageDown = () => action(PAGE_DOWN)

@@ -3,10 +3,11 @@ import { connect } from 'react-redux'
 import { selectSong } from '../actions'
 
 
-let List = ({
+let TrackList = ({
   tracks,
   selectedSong,
-  dispatch
+  pageUp,
+  pageDown
 }) => (
   <div>
     <ul className="list" >
@@ -23,12 +24,10 @@ let List = ({
     </ul>
 
     <div className="controls">
-      <button onClick={() => {
-      }} >
+      <button onClick={pageUp} >
         Page Up
       </button>
-      <button onClick={() => {
-      }} >
+      <button onClick={pageDown} >
         Page Down
       </button>
     </div>
@@ -36,6 +35,6 @@ let List = ({
   </div>
 )
 
-List = connect()(List)
+TrackList = connect()(TrackList)
 
-export default List
+export default TrackList

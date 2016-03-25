@@ -1,13 +1,13 @@
 import React from 'react'
 import Heading from './Heading'
-import SearchBar from './SearchBar'
+import SearchBarContainer from '../containers/SearchBarContainer'
 import TrackListContainer from '../containers/TrackListContainer'
 import TrackContainer from '../containers/TrackContainer'
 
 const App = () => (
   <div>
     <Heading />
-    <SearchBar />
+    <SearchBarContainer />
     <div>
       <TrackListContainer />
       <TrackContainer />
@@ -16,3 +16,11 @@ const App = () => (
 )
 
 export default App
+
+
+/*
+
+
+
+
+*/

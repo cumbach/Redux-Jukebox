@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { resetScreen, loadSongByArtist, loadSongByName } from '../actions'
 
-let SearchBar = ({dispatch}) => {
+let SearchBarContainer = ({dispatch}) => {
   let input;
 
   return (
@@ -19,18 +19,18 @@ let SearchBar = ({dispatch}) => {
       <button onClick={() => {
         input.value && dispatch(loadSongByArtist(input.value))
       }} >
-        Search for song by artist name
+        Search by Artist
       </button>
       <button onClick={() => {
         input.value && dispatch(loadSongByName(input.value))
       }} >
-        Search for song by name
+        Search by Song
       </button>
 
       <hr/>
     </div>
   )
 }
-SearchBar = connect()(SearchBar)
+SearchBarContainer = connect()(SearchBarContainer)
 
-export default SearchBar
+export default SearchBarContainer

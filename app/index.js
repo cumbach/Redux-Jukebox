@@ -10,7 +10,7 @@ import rootSaga from './sagas'
 import * as rootReducer from './reducers'
 import App from './components/App'
 
-const store = createStore(
+export const store = createStore(
   combineReducers(rootReducer),
   applyMiddleware(createSagaMiddleware(rootSaga))
 )
