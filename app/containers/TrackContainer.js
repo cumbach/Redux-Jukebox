@@ -27,4 +27,3 @@ let TrackContainer = ({selectedSong}) => {
 TrackContainer = connect(mapStateToProps)(TrackContainer)
 
 export default TrackContainer
-{/*<Track track={selectedSong} />*/}

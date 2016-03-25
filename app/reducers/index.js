@@ -31,6 +31,9 @@ export const entities = (state = { songs: [], page: 1, part: 1 }, action) => {
       else if (state.page > 1) {
           return {...state, page: state.page - 1}
       }
+      else {
+        return state
+      }
 
     case PAGE_DOWN:
       let moreDataOnServer = state.songs.length === 40
@@ -40,6 +43,9 @@ export const entities = (state = { songs: [], page: 1, part: 1 }, action) => {
       }
       else if (moreDataOnServer) {
           return {...state, part: 1, page: state.page + 1}
+      }
+      else {
+        return state
       }
 
   }

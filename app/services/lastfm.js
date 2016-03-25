@@ -34,7 +34,6 @@ export const fetchSongByArtist = (artistName) => {
   if (store) {
     page = store.getState().entities.page
   }
-  page = 2
   return callApi(`method=artist.gettoptracks&artist=${artistName}&page=${page}`, 'toptracks.track')
 }
 export const fetchSongByName = (songName) =>
