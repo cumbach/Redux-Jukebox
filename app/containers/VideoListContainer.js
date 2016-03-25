@@ -10,12 +10,11 @@ const mapStateToProps = (state) => ({
 let VideoListContainer = ({selectedSong}) => {
 
   let trackExists = !!Object.keys(selectedSong).length
-  let videos = youtube.getVideos(selectedSong.name)
 
   const renderTrack = () => (
     <div className="video-list-container" >
       <h1>selected track videos from YouTube</h1>
-      <VideoList videos={videos} />
+      <VideoList selectedSong={selectedSong} />
     </div>
   )
 

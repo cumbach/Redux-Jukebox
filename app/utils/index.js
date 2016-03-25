@@ -26,7 +26,3 @@ Object.byString = function(o, s) {
     }
     return o;
 }
-
-window.dump = (obj) => {
-  console.log(`dump: ${JSON.stringify(obj)}`)
-}

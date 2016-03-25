@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { youtube } from '../services'
+
 
 
 
@@ -13,8 +15,17 @@ class VideoList extends React.Component {
   }
 
   componentWillMount() {
+    this.method()
+  }
+
+  componentDidUpdate() {
+    this.method()
+
+  }
+
+  method() {
     var self = this;
-    let {videos} = this.props
+    let videos = youtube.getVideos(this.props.selectedSong.name)
     videos.then(videoList => {
       self.setState({
         videoList
@@ -22,9 +33,7 @@ class VideoList extends React.Component {
     })
   }
 
-
   render() {
-    console.log(this)
     return (
       <div className="video-list">
         { this.state.videoList.map((video, n) => (
