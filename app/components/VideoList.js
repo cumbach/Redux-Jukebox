@@ -39,7 +39,7 @@ class VideoList extends React.Component {
           { this.state.videoList.map((video, n) => (
               <iframe className="video"
                     key={n}
-                    width="30%"
+                    width="30%" 
                     src={"https://www.youtube.com/embed/" + video.id }
                     frameBorder="0"
                     allowFullScreen></iframe>
